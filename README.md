@@ -129,3 +129,7 @@ Planned next steps:
 * create the 3D printed housing
 * test heat and waterproofing
 * improve wiring and power protection
+
+
+### 3D Model V2
+<img src="media/3D_Proto_V2.jpg" width="500">
