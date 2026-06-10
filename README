@@ -50,6 +50,7 @@ The housing will also be tested for waterproofness, because the final light modu
 
 ## Current Prototype
 
+This is a test function to make sure the hardware and basic software work correctly.
 It uses:
 
 * ESP32 Dev Module
@@ -58,8 +59,8 @@ It uses:
 * FastLED library
 * RotaryEncoder library
 
-
-This is not the final fog light program yet. It is a test function to make sure the hardware and basic software work correctly.
+### Prototype test
+<img src="media/PCB_Prototype_Test.jpg" width="500">
 
 
 ## Wiring
@@ -75,7 +76,8 @@ This is not the final fog light program yet. It is a test function to make sure 
 | LED 3.3V   | 3.3V      |
 | LED GND    | GND       |
 
-
+### PCB Soldering
+<img src="media/PCB_Soldering.jpg" width="500">
 
 ## Libraries
 
