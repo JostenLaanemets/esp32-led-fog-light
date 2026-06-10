@@ -132,4 +132,4 @@ Planned next steps:
 
 
 ### 3D Model V2
-<img src="media/3D_Proto_V2.jpg" width="500">
+<img src="media/3D_Proto_V2.png" width="500">
