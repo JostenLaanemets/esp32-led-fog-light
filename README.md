@@ -77,7 +77,7 @@ It uses:
 | LED GND    | GND       |
 
 ### PCB Soldering
-<img src="media/PCB_Soldering.jpg" width="500">
+<img src="media/PCB_Solder.jpg" width="500">
 
 ## Libraries
 
