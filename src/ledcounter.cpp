@@ -20,6 +20,8 @@ int lastPos = 0;
 #define COLOR_ORDER GRB
 
 CRGB leds[NUM_LEDS];
+CRGB color = CRGB::Blue;
+int colorSelect = 0;
 
 int ledAmount = 0;
 
@@ -34,7 +36,31 @@ const unsigned long buttonDebounceMs = 50;
 void UpdateLeds() {
   for (int i = 0; i < NUM_LEDS; i++) {
     if (i < ledAmount) {
-      leds[i] = CRGB::Red;
+
+      
+      switch (colorSelect % 6) {
+        case 0:
+          color = CRGB::Blue;
+          break;
+        case 1:
+          color = CRGB::Red;
+          break;
+        case 2:
+          color = CRGB::Green;
+          break;
+        case 3:
+          color = CRGB::Yellow;
+          break;
+        case 4:
+          color = CRGB::Purple;
+          break;
+        case 5:
+          color = CRGB::Cyan; 
+          break;
+
+      }
+
+      leds[i] = color;
     } else {
       leds[i] = CRGB::Black;
     }
@@ -57,7 +83,7 @@ void ReadButton() {
 
       if (buttonState == LOW) {
         Serial.println("Reset");
-
+        colorSelect++;
         ledAmount = 0;
         encoder.setPosition(0);
         lastPos = 0;
