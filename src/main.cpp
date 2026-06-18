@@ -1,14 +1,22 @@
 #include <Arduino.h>
-#include "ledcounter.h"
+#include "config.h"
+#include "led-controller.h"
+#include "button-controller.h"
+#include <FastLED.h>
+
 
 void setup() {
-  Serial.begin(115200);
-  LedCounterSetup();
+    setupLEDs();
+    setupButton();
+    Serial.begin(115200);
 }
 
 void loop() {
-  // Turns on led based on the amount of turns on the rotary encoder, and resets leds and counter when button is pressed
-  ReadButton();
-  ReadEncoder();
-  UpdateLeds();
+if (readButton(encoder_sw)) {
+        Serial.println("Encoder button pressed");
+        turnOffLEDs();
+    }
+
+
+
 }

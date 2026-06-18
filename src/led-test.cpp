@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <RotaryEncoder.h>
 #include <FastLED.h>
-#include "ledcounter.h"
+#include "led-test.h"
 
 #define CLK_PIN 18
 #define DT_PIN  19
@@ -12,6 +12,7 @@ RotaryEncoder encoder(CLK_PIN, DT_PIN, RotaryEncoder::LatchMode::FOUR3);
 
 int lastPos = 0;
 
+
 #define LED_PIN     2
 #define NUM_LEDS    80
 #define BRIGHTNESS  80
@@ -19,7 +20,7 @@ int lastPos = 0;
 
 #define COLOR_ORDER GRB
 
-CRGB leds[NUM_LEDS];
+CRGB testLeds[NUM_LEDS];
 CRGB color = CRGB::Blue;
 int colorSelect = 0;
 
@@ -57,12 +58,11 @@ void UpdateLeds() {
         case 5:
           color = CRGB::Cyan; 
           break;
-
       }
 
-      leds[i] = color;
+      testLeds[i] = color;
     } else {
-      leds[i] = CRGB::Black;
+      testLeds[i] = CRGB::Black;
     }
   }
 
@@ -125,7 +125,7 @@ void ReadEncoder() {
 void LedCounterSetup() {
   pinMode(SW_PIN, INPUT_PULLUP);
   
-  FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS);
+  FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(testLeds, NUM_LEDS);
   FastLED.setBrightness(BRIGHTNESS);
 
   FastLED.clear();
