@@ -4,19 +4,51 @@
 #include "button-controller.h"
 #include <FastLED.h>
 
+// change to encoder after testing
+int Encoder = 1;
 
 void setup() {
     setupLEDs();
     setupButton();
     Serial.begin(115200);
+    
 }
 
 void loop() {
-if (readButton(encoder_sw)) {
-        Serial.println("Encoder button pressed");
+
+    Modes();
+
+    //TEST
+    if (readButton(encoder_sw)) {
+        Serial.println("SW");
+        turnOnLEDs(CRGB::Red);
+        delay(2000);
         turnOffLEDs();
     }
+}
 
-
-
+void Modes() {
+    switch (Encoder) {
+        case 1:
+            RightBlinker();
+            break;
+        case 2:
+            LeftBlinker();
+            break;
+        case 3:
+            hazardBlinker();
+            break;
+        case 4:
+            // Flashing mode
+            break;
+        case 5:
+            // Solid mode
+            break;
+        case 6:
+            // Japanese mode
+            break;
+        default:
+            turnOffLEDs();
+            break;
+    }
 }

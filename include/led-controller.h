@@ -8,3 +8,7 @@ constexpr int LED_COUNT = 80;
 void setupLEDs();
 void turnOffLEDs();
 void turnOnLEDs(CRGB color);
+
+void RightBlinker();
+void LeftBlinker();
+void hazardBlinker();

@@ -4,12 +4,13 @@
 
 
 //Button declarations
-Button encoder_sw ={ENCODER_SW_PIN, HIGH, HIGH, 0};
-Button r_blinder = {R_BLINKER_PIN,  HIGH, HIGH, 0};
-Button l_blinder = {L_BLINKER_PIN,  HIGH, HIGH, 0};
+Button encoder_sw ={pin: ENCODER_SW_PIN, lastReading: HIGH, stableState: HIGH, lastChangeTime: 0};
+Button r_blinder = {pin: R_BLINKER_PIN,  lastReading: HIGH, stableState: HIGH, lastChangeTime: 0};
+Button l_blinder = {pin: L_BLINKER_PIN,  lastReading: HIGH, stableState: HIGH, lastChangeTime: 0};
 
     
 // Setup button pins
+// PULLUP: Pressed = LOW, Not Pressed = HIGH
 void setupButton() {
     // ENCODER
     pinMode(ENCODER_SW_PIN, INPUT_PULLUP);
@@ -22,6 +23,7 @@ void setupButton() {
 }
 
 
+
 // Reads bonly when pressed
 bool readButton(Button& button) {
     bool reading = digitalRead(button.pin);
@@ -30,10 +32,9 @@ bool readButton(Button& button) {
         button.lastChangeTime = millis();
     }
 
-    if (millis() - button.lastChangeTime > DEBOUNCE_MS) {
+    if (millis() - button.lastChangeTime > DEBOUNCE_MS) {        
         if (reading != button.stableState) {
             button.stableState = reading;
-            
             if (button.stableState == LOW) {
                 button.lastReading = reading;
                 return true;
