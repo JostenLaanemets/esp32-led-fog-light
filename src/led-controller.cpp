@@ -46,3 +46,19 @@ void hazardBlinker() {
   turnOffLEDs();
   delay(2000);
 }
+// CUSTOM MODES 
+void FlashLight() {
+  Serial.println("Flashlight");
+  turnOnLEDs(CRGB::White);
+
+}
+void JPNMode() {
+  Serial.println("JPN mode");
+  turnOnLEDs(CRGB::White);
+  delay(500);
+  turnOnLEDs(CRGB::WhiteSmoke);
+  delay(500);
+  turnOffLEDs();
+  delay(100);
+
+}

@@ -39,10 +39,10 @@ void Modes() {
             hazardBlinker();
             break;
         case 4:
-            // Flashing mode
+            FlashLight();
             break;
         case 5:
-            // Solid mode
+            //...
             break;
         case 6:
             // Japanese mode

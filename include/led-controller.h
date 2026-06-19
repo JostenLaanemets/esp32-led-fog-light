@@ -12,3 +12,4 @@ void turnOnLEDs(CRGB color);
 void RightBlinker();
 void LeftBlinker();
 void hazardBlinker();
+void FlashLight();
