@@ -4,9 +4,13 @@
 
 
 //Button declarations
+
+    //Encoder switch
 Button encoder_sw ={pin: ENCODER_SW_PIN, lastReading: HIGH, stableState: HIGH, lastChangeTime: 0};
-Button r_blinder = {pin: R_BLINKER_PIN,  lastReading: HIGH, stableState: HIGH, lastChangeTime: 0};
-Button l_blinder = {pin: L_BLINKER_PIN,  lastReading: HIGH, stableState: HIGH, lastChangeTime: 0};
+
+    // Buttons
+Button r_blinker = {pin: R_BLINKER_PIN,  lastReading: HIGH, stableState: HIGH, lastChangeTime: 0};
+Button l_blinker = {pin: L_BLINKER_PIN,  lastReading: HIGH, stableState: HIGH, lastChangeTime: 0};
 
     
 // Setup button pins
